@@ -4,8 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "prisma generate",
-    "dev": "npx ts-node src/index.ts"
+    "build": "prisma generate"
   },
   "author": "",
   "license": "ISC",
