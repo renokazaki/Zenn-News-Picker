@@ -1,9 +1,12 @@
-import Dashboard from "./components/dashboard/Dashboard";
+import Greeting from "./components/Greeting";
+import TaskList from "./components/TaskList";
 
 function App() {
   return (
     <div>
-      <Dashboard />
+      <h2 className="text-2xl font-bold mb-4">Frontend</h2>
+      <Greeting />
+      <TaskList />
     </div>
   );
 }
