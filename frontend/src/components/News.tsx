@@ -12,7 +12,7 @@ interface NewsItem {
   imageUrl?: string;
 }
 
-const NewsContents() {
+const NewsContents= () =>  {
   const news: NewsItem[] = useNews();
 
   return (
