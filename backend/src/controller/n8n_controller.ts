@@ -7,6 +7,11 @@ const getHello = (req: Request, res: Response) => {
   res.send("Hello, TypeScript with Express!");
 };
 
+const getNews = async (req: Request, res: Response) => {
+  const news = await prisma.news.findMany();
+  res.json(news);
+};
+
 const postNews = async (req: Request, res: Response) => {
   const { text, title, url } = req.body as {
     text: string;
@@ -19,4 +24,4 @@ const postNews = async (req: Request, res: Response) => {
   res.status(201).json(news);
 };
 
-export { getHello, postNews };
+export { getHello, getNews, postNews };
