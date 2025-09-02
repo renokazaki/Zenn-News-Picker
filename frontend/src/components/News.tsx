@@ -79,7 +79,7 @@ const NewsContents= () =>  {
         </div>
       }
     >
-      <NewsContent />
+      <NewsContents />
     </Suspense>
   );
 };
