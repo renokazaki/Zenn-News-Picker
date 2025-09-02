@@ -14,3 +14,8 @@ model Task {
   id   Int    @id @default(autoincrement())
   name String
 }
+
+model News {
+  id   Int    @id @default(autoincrement())
+  text String
+}
