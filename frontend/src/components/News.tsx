@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Clock, ExternalLink } from "lucide-react";
@@ -11,7 +12,7 @@ interface NewsItem {
   imageUrl?: string;
 }
 
-export default function News() {
+const NewsContents() {
   const news: NewsItem[] = useNews();
 
   return (
@@ -67,3 +68,20 @@ export default function News() {
     </>
   );
 }
+        
+        const News = () => {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex justify-center items-center py-16">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+          <p className="ml-4 text-gray-600">Loading...</p>
+        </div>
+      }
+    >
+      <NewsContent />
+    </Suspense>
+  );
+};
+
+export default News;
