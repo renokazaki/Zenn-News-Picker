@@ -6,6 +6,7 @@ const app = express();
 const PORT = 4000;
 
 app.use(cors());
+app.use(express.json()); // JSONボディを解析するために追加
 app.use(router);
 
 app.listen(PORT, () => {
