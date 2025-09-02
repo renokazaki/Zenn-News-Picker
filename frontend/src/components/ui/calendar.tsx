@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import {
   ChevronDownIcon,
@@ -14,7 +12,7 @@ import { Button, buttonVariants } from "../../components/ui/button";
 function Calendar({
   className,
   classNames,
-  showOutsideDays = true,
+  showOutsideDays = false,
   captionLayout = "label",
   buttonVariant = "ghost",
   formatters,
@@ -110,7 +108,7 @@ function Calendar({
         range_middle: cn("rounded-none", defaultClassNames.range_middle),
         range_end: cn("rounded-r-md bg-accent", defaultClassNames.range_end),
         today: cn(
-          "bg-accent text-accent-foreground rounded-md data-[selected=true]:rounded-none",
+          "bg-blue-500 text-white rounded-md data-[selected=true]:bg-primary data-[selected=true]:text-primary-foreground hover:bg-blue-600",
           defaultClassNames.today
         ),
         outside: cn(
