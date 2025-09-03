@@ -1,10 +1,14 @@
 import { Calendar } from "../../components/ui/calendar";
 import { SidebarGroup, SidebarGroupContent } from "../../components/ui/sidebar";
-import { useState } from "react";
+import type { DateType } from "./Dashboard";
 
-export function CalendarPicker() {
-  const [date, setDate] = useState<Date | undefined>(undefined);
-
+export function CalendarPicker({
+  date,
+  setDate,
+}: {
+  date: DateType;
+  setDate: (date: DateType) => void;
+}) {
   return (
     <SidebarGroup className="px-0">
       <SidebarGroupContent>
