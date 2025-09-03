@@ -13,4 +13,4 @@ app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-//bun x ts-node src/app.ts
+//npx ts-node src/app.ts
