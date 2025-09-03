@@ -11,7 +11,7 @@ const BreadcrumbComponents = ({ date }: { date: DateType }) => {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbPage className="text-sm font-medium">
-            {date ? date.toLocaleDateString() : undefined}
+            {date ? date.toLocaleDateString() : "全ての日付のNews"}
           </BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>

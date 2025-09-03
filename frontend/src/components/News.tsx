@@ -1,20 +1,23 @@
 import { Suspense } from "react";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
-import { Badge } from "./ui/badge";
 import { Clock, ExternalLink } from "lucide-react";
 import { useNews } from "../hooks/useNews";
+import type { DateType } from "./dashboard/Dashboard";
 
 // ニュースアイテムの型定義
 export interface NewsItem {
   title: string;
   url: string;
   text: string;
-  imageUrl?: string;
   publishedAt: string;
 }
 
-const NewsContents = () => {
-  const news: NewsItem[] = useNews();
+interface NewsContentsProps {
+  selectedDate?: DateType;
+}
+
+const NewsContents = ({ selectedDate }: NewsContentsProps) => {
+  const news: NewsItem[] = useNews(selectedDate);
   // 日付を「YYYY-MM-DD」形式で表示する関数
   function formatDate(dateString: string): string {
     const date = new Date(dateString);
@@ -22,6 +25,17 @@ const NewsContents = () => {
     if (date > limit) return "";
     return date.toISOString().slice(0, 10);
   }
+
+  if (news.length === 0 && selectedDate) {
+    return (
+      <div className="col-span-full flex justify-center items-center py-8">
+        <p className="text-muted-foreground">
+          {selectedDate.toLocaleDateString("ja-JP")}のニュースはありません
+        </p>
+      </div>
+    );
+  }
+
   return (
     <>
       {news.map((news, id) => (
@@ -30,33 +44,14 @@ const NewsContents = () => {
           className="group hover:shadow-lg transition-all duration-200 hover:-translate-y-1 cursor-pointer border-0 shadow-md bg-gradient-to-br from-white to-gray-50/50 dark:from-gray-900 dark:to-gray-800/50"
           onClick={() => window.open(news.url, "_blank")}
         >
-          {/* カードヘッダー（画像がある場合） */}
-          {news.imageUrl && (
-            <div className="relative overflow-hidden rounded-t-lg">
-              <img
-                src={news.imageUrl}
-                alt={news.title}
-                className="h-48 w-full object-cover transition-transform duration-200 group-hover:scale-105"
-              />
-              <div className="absolute top-2 right-2">
-                <Badge
-                  variant="secondary"
-                  className="bg-white/90 text-gray-900"
-                >
-                  test
-                </Badge>
-              </div>
-            </div>
-          )}
-
-          <CardHeader className="pb-3">
-            <h3 className="font-semibold text-sm leading-tight line-clamp-2 group-hover:text-primary transition-colors">
+          <CardHeader className="">
+            <h3 className="font-semibold text-sm leading-tight line-clamp-3 group-hover:text-primary transition-colors">
               {news.title}
             </h3>
           </CardHeader>
 
           <CardContent className="pt-0 pb-4">
-            <p className="text-sm text-muted-foreground line-clamp-3">
+            <p className="text-sm text-muted-foreground line-clamp-10">
               {news.text}
             </p>
           </CardContent>
@@ -76,7 +71,11 @@ const NewsContents = () => {
   );
 };
 
-const News = () => {
+interface NewsProps {
+  selectedDate?: DateType;
+}
+
+const News = ({ selectedDate }: NewsProps = {}) => {
   return (
     <Suspense
       fallback={
@@ -86,7 +85,7 @@ const News = () => {
         </div>
       }
     >
-      <NewsContents />
+      <NewsContents selectedDate={selectedDate} />
     </Suspense>
   );
 };
