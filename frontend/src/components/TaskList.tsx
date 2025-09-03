@@ -7,7 +7,7 @@ const TaskListContent = () => {
 
   return (
     <div className="mt-4">
-      <h2 className="text-xl font-bold mb-2">タスク一覧</h2>
+      <h2 className="text-xl font-bold mb-2">一覧</h2>
       {tasks.length === 0 ? (
         <p>タスクがありません</p>
       ) : (
