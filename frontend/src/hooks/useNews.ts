@@ -1,13 +1,8 @@
 import { use } from "react";
-
-type NewsData = {
-  title: string;
-  text: string;
-  url: string;
-};
+import type { NewsItem } from "../components/News";
 
 // データをフェッチする非同期関数
-const fetchNews = async (): Promise<NewsData[]> => {
+const fetchNews = async (): Promise<NewsItem[]> => {
   // 無限ループを防ぐため、コンソールログを追加して確認
   console.log("Fetching news data...");
   const res = await fetch(`${import.meta.env.VITE_API_URL}/n8n/news`);

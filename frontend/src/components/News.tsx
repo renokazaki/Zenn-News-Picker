@@ -5,16 +5,23 @@ import { Clock, ExternalLink } from "lucide-react";
 import { useNews } from "../hooks/useNews";
 
 // ニュースアイテムの型定義
-interface NewsItem {
+export interface NewsItem {
   title: string;
   url: string;
   text: string;
   imageUrl?: string;
+  publishedAt: string;
 }
 
-const NewsContents= () =>  {
+const NewsContents = () => {
   const news: NewsItem[] = useNews();
-
+  // 日付を「YYYY-MM-DD」形式で表示する関数
+  function formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    const limit = new Date(date);
+    if (date > limit) return "";
+    return date.toISOString().slice(0, 10);
+  }
   return (
     <>
       {news.map((news, id) => (
@@ -57,9 +64,9 @@ const NewsContents= () =>  {
           <CardFooter className="pt-0 flex items-center justify-between">
             <div className="flex items-center gap-1 text-xs text-muted-foreground">
               <Clock className="h-3 w-3" />
-              {/* <time dateTime={news.publishedAt}>
+              <time dateTime={news.publishedAt}>
                 {formatDate(news.publishedAt)}
-              </time> */}
+              </time>
             </div>
             <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-primary transition-colors" />
           </CardFooter>
@@ -67,9 +74,9 @@ const NewsContents= () =>  {
       ))}
     </>
   );
-}
-        
-        const News = () => {
+};
+
+const News = () => {
   return (
     <Suspense
       fallback={

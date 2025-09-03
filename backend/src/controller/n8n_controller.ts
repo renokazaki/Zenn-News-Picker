@@ -13,13 +13,14 @@ const getNews = async (req: Request, res: Response) => {
 };
 
 const postNews = async (req: Request, res: Response) => {
-  const { text, title, url } = req.body as {
+  const { text, title, url, publishedAt } = req.body as {
     text: string;
     title: string;
     url: string;
+    publishedAt: Date;
   };
   const news = await prisma.news.create({
-    data: { text, title, url },
+    data: { text, title, url, publishedAt },
   });
   res.status(201).json(news);
 };

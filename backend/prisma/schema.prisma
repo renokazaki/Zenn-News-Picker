@@ -13,8 +13,9 @@ model Task {
 }
 
 model News {
-  id    Int    @id @default(autoincrement())
-  text  String
-  title String
-  url   String
+  id          Int      @id @default(autoincrement())
+  text        String
+  title       String
+  url         String
+  publishedAt DateTime
 }
