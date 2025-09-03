@@ -1,13 +1,8 @@
 import * as React from "react";
-import { Plus } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
   SidebarRail,
   SidebarSeparator,
 } from "../../components/ui/sidebar";
@@ -34,16 +29,7 @@ export function AppSidebar({
         {/* {<TaskList データベースから取得した仮データ/>} */}
         <TaskList />
       </SidebarContent>
-      <SidebarFooter>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton>
-              <Plus />
-              <span>カテゴリ追加</span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarFooter>
+
       <SidebarRail />
     </Sidebar>
   );
