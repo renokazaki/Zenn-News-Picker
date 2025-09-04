@@ -1,6 +1,6 @@
 import express from "express";
-import routeApi from "./api/routerApi";
-import route_n8n from "./api/route_n8n";
+import routeApi from "./routers/routerApi";
+import route_n8n from "./routers/route_n8n";
 
 const router = express.Router();
 
