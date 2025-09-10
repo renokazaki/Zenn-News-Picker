@@ -1,16 +1,14 @@
 import { Suspense } from "react";
-import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "../../../../components/ui/card";
 import { Clock, ExternalLink } from "lucide-react";
-import { useNews } from "../hooks/useNews";
-import type { DateType } from "./dashboard/Dashboard";
-
-// ニュースアイテムの型定義
-export interface NewsItem {
-  title: string;
-  url: string;
-  text: string;
-  publishedAt: string;
-}
+import { useNews } from "./useNews.Hook";
+import type { NewsItem, DateType } from "../../../../type/News.type";
+import { formatDate } from "../../../../lib/formatdate";
 
 interface NewsContentsProps {
   selectedDate?: DateType;
@@ -18,13 +16,6 @@ interface NewsContentsProps {
 
 const NewsContents = ({ selectedDate }: NewsContentsProps) => {
   const news: NewsItem[] = useNews(selectedDate);
-  // 日付を「YYYY-MM-DD」形式で表示する関数
-  function formatDate(dateString: string): string {
-    const date = new Date(dateString);
-    const limit = new Date(date);
-    if (date > limit) return "";
-    return date.toISOString().slice(0, 10);
-  }
 
   if (news.length === 0 && selectedDate) {
     return (
@@ -85,7 +76,13 @@ const News = ({ selectedDate }: NewsProps = {}) => {
         </div>
       }
     >
-      <NewsContents selectedDate={selectedDate} />
+      <main className="flex-1 space-y-6 p-4 md:p-6 lg:p-8 bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+        <section className="space-y-4">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+            <NewsContents selectedDate={selectedDate} />
+          </div>
+        </section>
+      </main>
     </Suspense>
   );
 };

@@ -1,12 +1,12 @@
 import express from "express";
 import cors from "cors";
-import router from "./index";
+import router from "./routers";
 
 const app = express();
 const PORT = 4000;
 
 app.use(cors());
-app.use(express.json()); // JSONボディを解析するために追加
+app.use(express.json()); // JSONボディを解析するために必要
 app.use(router);
 
 app.listen(PORT, () => {

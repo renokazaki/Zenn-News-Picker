@@ -1,6 +1,9 @@
-import { Calendar } from "../../components/ui/calendar";
-import { SidebarGroup, SidebarGroupContent } from "../../components/ui/sidebar";
-import type { DateType } from "./Dashboard";
+import { Calendar } from "../../../components/ui/calendar";
+import {
+  SidebarGroup,
+  SidebarGroupContent,
+} from "../../../components/ui/sidebar";
+import type { DateType } from "../../../type/News.type";
 
 export function CalendarPicker({
   date,

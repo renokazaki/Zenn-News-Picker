@@ -1,6 +1,5 @@
 import { use } from "react";
-import type { NewsItem } from "../components/News";
-import type { DateType } from "../components/dashboard/Dashboard";
+import type { NewsItem, DateType } from "../../../../type/News.type";
 
 const fetchNews = async (): Promise<NewsItem[]> => {
   const res = await fetch(`${import.meta.env.VITE_API_URL}/n8n/news`);
@@ -22,11 +21,11 @@ export const useNews = (selectedDate?: DateType) => {
 
   // 選択された日付と同じ日付のニュースだけをフィルタリング
   return data.filter((news) => {
-    const newsDate = new Date(news.publishedAt);
-    return (
-      newsDate.getFullYear() === selectedDate.getFullYear() &&
-      newsDate.getMonth() === selectedDate.getMonth() &&
-      newsDate.getDate() === selectedDate.getDate()
-    );
+    const newsDateStr = news.publishedAt.split("T")[0]; // YYYY-MM-DD部分のみ取得
+    const selectedDateStr = `${selectedDate.getFullYear()}-${String(
+      selectedDate.getMonth() + 1
+    ).padStart(2, "0")}-${String(selectedDate.getDate()).padStart(2, "0")}`;
+
+    return newsDateStr === selectedDateStr;
   });
 };
