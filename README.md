@@ -26,7 +26,7 @@ Zennには日々多くの技術記事が投稿されており、すべての記�
 - **Node.js** - サーバーサイドランタイム
 - **Express** - Webアプリケーションフレームワーク
 - **Prisma** - 型安全なORM
-- **PostgreSQL** - リレーショナルデータベース
+- **PostgreSQL(Neon)** - リレーショナルデータベース
 
 ### 自動化・AI処理
 - **n8n** - ワークフロー自動化プラットフォーム
@@ -53,7 +53,7 @@ Zennには日々多くの技術記事が投稿されており、すべての記�
 ## アーキテクチャ
 
 ```
-Zenn RSS → AIエージェント → PostgreSQL(Supabase) → Express API → React UI
+Zenn RSS → AIエージェント → PostgreSQL(Neon) → Express API → React UI
 ```
 
 1. **記事取得**: n8nがZenn RSSから記事を自動取得
