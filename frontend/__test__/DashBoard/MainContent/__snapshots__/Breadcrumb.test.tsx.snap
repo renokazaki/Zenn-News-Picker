@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Breadcrumb スナップショットと一致すること 1`] = `
+<div>
+  <nav
+    aria-label="breadcrumb"
+    data-slot="breadcrumb"
+  >
+    <ol
+      class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"
+      data-slot="breadcrumb-list"
+    >
+      <li
+        class="inline-flex items-center gap-1.5"
+        data-slot="breadcrumb-item"
+      >
+        <span
+          aria-current="page"
+          aria-disabled="true"
+          class="text-foreground text-sm font-medium"
+          data-slot="breadcrumb-page"
+          role="link"
+        >
+          2025/9/15
+        </span>
+      </li>
+    </ol>
+  </nav>
+</div>
+`;

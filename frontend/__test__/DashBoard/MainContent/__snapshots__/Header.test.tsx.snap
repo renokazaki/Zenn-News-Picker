@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Header スナップショットと一致すること 1`] = `
+<div>
+  <div
+    class="group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full"
+    data-slot="sidebar-wrapper"
+    style="--sidebar-width: 16rem; --sidebar-width-icon: 3rem;"
+  >
+    <header
+      class="bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/50 sticky top-0 flex h-16 shrink-0 items-center gap-3 border-b border-b-slate-200/30 dark:border-b-slate-700/30 px-4 z-50 shadow-sm"
+    >
+      <button
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:text-accent-foreground size-7 -ml-1 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors"
+        data-sidebar="trigger"
+        data-slot="sidebar-trigger"
+      >
+        <svg
+          aria-hidden="true"
+          class="lucide lucide-panel-left"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            height="18"
+            rx="2"
+            width="18"
+            x="3"
+            y="3"
+          />
+          <path
+            d="M9 3v18"
+          />
+        </svg>
+        <span
+          class="sr-only"
+        >
+          Toggle Sidebar
+        </span>
+      </button>
+      <div
+        class="shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px mr-2 data-[orientation=vertical]:h-5 bg-slate-300/50 dark:bg-slate-700/50"
+        data-orientation="vertical"
+        data-slot="separator"
+        role="none"
+      />
+      <nav
+        aria-label="breadcrumb"
+        data-slot="breadcrumb"
+      >
+        <ol
+          class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"
+          data-slot="breadcrumb-list"
+        >
+          <li
+            class="inline-flex items-center gap-1.5"
+            data-slot="breadcrumb-item"
+          >
+            <span
+              aria-current="page"
+              aria-disabled="true"
+              class="text-foreground text-sm font-medium"
+              data-slot="breadcrumb-page"
+              role="link"
+            >
+              2025/9/11
+            </span>
+          </li>
+        </ol>
+      </nav>
+    </header>
+  </div>
+</div>
+`;
