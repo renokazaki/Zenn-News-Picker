@@ -1,0 +1,13 @@
+{
+  "name": "zenn-news-picker",
+  "version": "1.0.0",
+  "description": "**Zenn News Picker** は、Zennの技術記事から興味のあるキーワードに基づいて自動的にフィルタリングを行い、AIによる要約を付与してWebアプリケーション上で表示するツールです。",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.1.3",
+    "ts-jest": "^29.4.1"
+  }
+}
