@@ -1,4 +1,5 @@
 # Zenn News Picker
+<img width="1920" height="928" alt="ZennNewsPicker" src="https://github.com/user-attachments/assets/da474f7b-be76-494c-baab-c462958d500f" />
 
 ## 概要
 
