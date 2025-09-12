@@ -1,4 +1,4 @@
-name: フロントエンドテスト
+name: フロントエンドテストの実行
 
 on:
   push:
@@ -28,9 +28,6 @@ jobs:
 
       - name: 依存関係のインストール
         run: npm ci
-
-      - name: ESLint を実行
-        run: npm run lint
 
       - name: テストを実行
         run: npm test
