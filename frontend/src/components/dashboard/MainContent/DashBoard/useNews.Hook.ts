@@ -18,7 +18,7 @@ export const useNews = (selectedDate?: DateType) => {
     return data;
   }
 
-  // 選択された日付と同じ日付のニュースだけをフィルタリング
+  // 選択された日付と同じ日付のニュースをフィルタリング
   return data.filter((news) => {
     const newsDateStr = news.publishedAt.split("T")[0]; // YYYY-MM-DD部分のみ取得
     const selectedDateStr = `${selectedDate.getFullYear()}-${String(
