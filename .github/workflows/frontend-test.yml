@@ -30,4 +30,4 @@ jobs:
         run: npm ci
 
       - name: テストを実行
-        run: npm test
+        run: npm test -- -u
