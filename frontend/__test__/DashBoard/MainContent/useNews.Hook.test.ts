@@ -15,7 +15,6 @@ const mockNewsData: NewsItem[] = [
   },
 ];
 
-// モック関数
 const mockUseNewsFn = (selectedDate?: Date) => {
   if (!selectedDate) {
     return mockNewsData;
@@ -33,7 +32,6 @@ const mockUseNewsFn = (selectedDate?: Date) => {
   });
 };
 
-// モジュールをモック化
 jest.mock(
   "../../../src/components/dashboard/MainContent/DashBoard/useNews.Hook",
   () => ({
@@ -41,7 +39,6 @@ jest.mock(
   })
 );
 
-// モック化したuseNewsをインポート
 import { useNews } from "../../../src/components/dashboard/MainContent/DashBoard/useNews.Hook";
 
 describe("useNewsのテスト", () => {
