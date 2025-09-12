@@ -35,6 +35,10 @@ describe("NewsContents", () => {
     expect(container).toBeDefined();
     expect(screen.getByText("テストニュース1")).toBeDefined();
     expect(screen.getByText("テストニュース2")).toBeDefined();
+    expect(screen.getByText("これはテストニュースです")).toBeDefined();
+    expect(screen.getByText("これは2つ目のテストニュースです")).toBeDefined();
+    expect(screen.getByText("2025-09-10")).toBeDefined();
+    expect(screen.getByText("2025-09-11")).toBeDefined();
   });
 
   test("スナップショットと一致すること", () => {
