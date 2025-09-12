@@ -14,7 +14,6 @@ const newsPromise = fetchNews();
 export const useNews = (selectedDate?: DateType) => {
   const data = use(newsPromise);
 
-  // 日付が選択されていない場合は全てのニュースを返す
   if (!selectedDate) {
     return data;
   }
