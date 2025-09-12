@@ -1,6 +1,5 @@
 import type { NewsItem } from "../../../src/type/News.type";
 
-// テスト用のモックデータ
 const mockNewsData: NewsItem[] = [
   {
     title: "テストニュース1",
