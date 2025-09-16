@@ -4,9 +4,11 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
 } from "../../../../components/ui/breadcrumb";
-import type { DateType } from "../../../../type/News.type";
+import { selectedDateAtom } from "../../../../store";
+import { useAtomValue } from "jotai";
+const BreadcrumbComponents = () => {
+  const date = useAtomValue(selectedDateAtom);
 
-const BreadcrumbComponents = ({ date }: { date: DateType }) => {
   return (
     <Breadcrumb>
       <BreadcrumbList>

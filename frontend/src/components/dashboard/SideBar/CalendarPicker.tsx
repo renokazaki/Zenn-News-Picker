@@ -3,15 +3,10 @@ import {
   SidebarGroup,
   SidebarGroupContent,
 } from "../../../components/ui/sidebar";
-import type { DateType } from "../../../type/News.type";
-
-export function CalendarPicker({
-  date,
-  setDate,
-}: {
-  date: DateType;
-  setDate: (date: DateType) => void;
-}) {
+import { selectedDateAtom } from "../../../store";
+import { useAtom } from "jotai";
+export function CalendarPicker() {
+  const [date, setDate] = useAtom(selectedDateAtom);
   return (
     <SidebarGroup className="px-0">
       <SidebarGroupContent>

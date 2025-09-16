@@ -1,9 +1,8 @@
 import BreadcrumbComponents from "./Breadcrumb";
 import { Separator } from "../../../../components/ui/separator";
 import { SidebarTrigger } from "../../../../components/ui/sidebar";
-import type { DateType } from "../../../../type/News.type";
 
-const Header = ({ date }: { date: DateType }) => {
+function Header() {
   return (
     <>
       <header className="bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/50 sticky top-0 flex h-16 shrink-0 items-center gap-3 border-b border-b-slate-200/30 dark:border-b-slate-700/30 px-4 z-50 shadow-sm">
@@ -12,10 +11,10 @@ const Header = ({ date }: { date: DateType }) => {
           orientation="vertical"
           className="mr-2 data-[orientation=vertical]:h-5 bg-slate-300/50 dark:bg-slate-700/50"
         />
-        <BreadcrumbComponents date={date} />
+        <BreadcrumbComponents />
       </header>
     </>
   );
-};
+}
 
 export default Header;
