@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import NewsContents from "../../../src/components/dashboard/MainContent/DashBoard/NewsContents/NewsContents";
+import { createStore, Provider } from "jotai";
 
 // useNews.Hook.ts のモック
 jest.mock(
@@ -27,7 +28,11 @@ describe("NewsContents", () => {
   let container: HTMLElement;
 
   beforeEach(() => {
-    const renderResult = render(<NewsContents selectedDate={new Date()} />);
+    const renderResult = render(
+      <Provider store={createStore()}>
+        <NewsContents />
+      </Provider>
+    );
     container = renderResult.container;
   });
 
