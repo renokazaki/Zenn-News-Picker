@@ -3,6 +3,7 @@ import React from "react";
 import Header from "../../../src/components/dashboard/MainContent/Header/Header";
 import { SidebarProvider } from "../../../src/components/ui/sidebar";
 import "@testing-library/jest-dom";
+import { createStore, Provider } from "jotai";
 
 // window.matchMediaのシンプルなモック
 window.matchMedia = jest.fn().mockImplementation((query) => ({
@@ -17,9 +18,11 @@ describe("Header", () => {
 
   beforeEach(() => {
     const renderResult = render(
-      <SidebarProvider>
-        <Header date={new Date()} />
-      </SidebarProvider>
+      <Provider store={createStore()}>
+        <SidebarProvider>
+          <Header />
+        </SidebarProvider>
+      </Provider>
     );
     container = renderResult.container;
   });

@@ -1,15 +1,14 @@
 import { Card } from "../../../../../components/ui/card";
 import { useNews } from "../useNews.Hook";
-import type { NewsItem, DateType } from "../../../../../type/News.type";
+import type { NewsItem } from "../../../../../type/News.type";
 import NewsTitle from "./NewsTitle";
 import NewsContent from "./NewsContent";
 import NewsFotter from "./NewsFotter";
+import { useAtomValue } from "jotai";
+import { selectedDateAtom } from "../../../../../store";
 
-interface NewsContentsProps {
-  selectedDate?: DateType;
-}
-
-const NewsContents = ({ selectedDate }: NewsContentsProps) => {
+const NewsContents = () => {
+  const selectedDate = useAtomValue(selectedDateAtom);
   const news: NewsItem[] = useNews(selectedDate);
 
   if (news.length === 0 && selectedDate) {

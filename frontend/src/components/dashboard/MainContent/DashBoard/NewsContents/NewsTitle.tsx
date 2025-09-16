@@ -7,7 +7,7 @@ interface NewsTitleProps {
 
 const NewsTitle = ({ news }: NewsTitleProps) => {
   return (
-    <CardHeader className="">
+    <CardHeader>
       <h3 className="font-semibold text-sm leading-tight line-clamp-3 group-hover:text-primary transition-colors">
         {news.title}
       </h3>

@@ -1,13 +1,16 @@
 import { render } from "@testing-library/react";
 import { CalendarPicker } from "../../../src/components/dashboard/SideBar/CalendarPicker";
 import React from "react";
+import { createStore, Provider } from "jotai";
 
 describe("calender", () => {
   let container: HTMLElement;
 
   beforeEach(() => {
     const renderResult = render(
-      <CalendarPicker date={new Date()} setDate={() => {}} />
+      <Provider store={createStore()}>
+        <CalendarPicker />
+      </Provider>
     );
     container = renderResult.container;
   });
